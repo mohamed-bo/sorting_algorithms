@@ -8,7 +8,7 @@
 
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j, k;
+	size_t i, j, maxIndex;
 	int temp;
 
 	if (!array || !size)
