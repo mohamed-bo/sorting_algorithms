@@ -24,12 +24,13 @@ void swap(int *array, size_t size, int *a, int *b)
  * @size: len
  * @low: the low index
  * @high: the high index
+ * Return: partition index
  */
 
 size_t partition(int *array, size_t size, ssize_t low, ssize_t high)
 {
 	int i, j;
-    int pivot = array[high];
+	int pivot = array[high];
 
 	for (i = j = low; j < high; j++)
 		if (array[j] < pivot)
@@ -47,9 +48,11 @@ size_t partition(int *array, size_t size, ssize_t low, ssize_t high)
  */
 void quicksort(int *array, size_t size, ssize_t low, ssize_t high)
 {
+	size_t pivotI;
+
 	if (low < high)
 	{
-		size_t pivotI = partition(array, size, low, high);
+		pivotI = partition(array, size, low, high);
 		quicksort(array, size, low, pivotI - 1);
 		quicksort(array, size, pivotI + 1, high);
 	}
